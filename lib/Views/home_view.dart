@@ -12,7 +12,12 @@ class HomeView extends StatelessWidget {
           backgroundColor: Colors.blue,
           title: const Text("Api"),
         ),
-        body: const Center(child: CustomHomeWidget()),
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const Center(child: CustomHomeWidget());
+          },
+        ),
       ),
     );
   }

@@ -6,11 +6,16 @@ class CustomHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 50,
       width: 300,
       color: Colors.red,
       child: const Center(
-        child: Text("islam"),
+        child: Text(
+          "islam",
+          style: TextStyle(
+            fontSize: 20,
+          ),
+        ),
       ),
     );
   }
