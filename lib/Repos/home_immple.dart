@@ -40,4 +40,22 @@ class HomeImple extends HomeRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, User>> addNewUser(
+      {required User newUser, String? token}) async {
+    try {
+      var result = await apiService.addNewUser(
+          token:
+              "8f10e218f875745891b3cbd0865d75d6d5f31f5a96bdf0766a1bda7568d05ce2",
+          newUser: newUser);
+      return right(User.fromJson(result));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(errorMessage: e.toString()));
+      }
+    }
+  }
 }

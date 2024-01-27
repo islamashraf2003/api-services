@@ -1,14 +1,13 @@
 import 'dart:developer';
 
-import 'package:api_app/Manager/cubituser_info_by_id_Cubit/use_info_by_id_cubit.dart';
-import 'package:api_app/Manager/cubituser_info_by_id_Cubit/use_info_by_id_state.dart';
-import 'package:api_app/Manager/user_cubit/user_cubit.dart';
-import 'package:api_app/Manager/user_cubit/user_state.dart';
+import 'package:api_app/Manager/add_new_user_cubit/add_new_user_state.dart';
 import 'package:api_app/Widgets/custom_faulire_widget.dart';
 import 'package:api_app/Widgets/custom_home_widget.dart';
 import 'package:api_app/Widgets/custom_loading_Widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../Manager/add_new_user_cubit/add_new_user_cubit.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,9 +20,9 @@ class HomeView extends StatelessWidget {
           backgroundColor: Colors.blue,
           title: const Text("Api"),
         ),
-        body: BlocBuilder<UseInfoByIdCubit, UseInfoByIdState>(
+        body: BlocBuilder<AddNewUserCubit, AddNewUserState>(
           builder: (context, state) {
-            if (state is UseInfoByIdSuccess) {
+            if (state is AddNewUserSuccess) {
               return ListView.builder(
                 itemCount: 1,
                 shrinkWrap: true,
@@ -34,7 +33,7 @@ class HomeView extends StatelessWidget {
                   ));
                 },
               );
-            } else if (state is UseInfoByIdFaulire) {
+            } else if (state is AddNewUserFaulire) {
               log(state.errorMessage);
               return CustomFaulireWidget(errorMessage: state.errorMessage);
             } else {

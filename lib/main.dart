@@ -1,5 +1,5 @@
-import 'package:api_app/Manager/cubituser_info_by_id_Cubit/use_info_by_id_cubit.dart';
-import 'package:api_app/Manager/user_cubit/user_cubit.dart';
+import 'package:api_app/Manager/add_new_user_cubit/add_new_user_cubit.dart';
+import 'package:api_app/Models/user_model.dart';
 import 'package:api_app/Repos/home_immple.dart';
 import 'package:api_app/Services/injection.dart';
 import 'package:api_app/Views/home_view.dart';
@@ -19,9 +19,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
-        create: (context) => UseInfoByIdCubit(
+        create: (context) => AddNewUserCubit(
           getIt.get<HomeImple>(),
-        )..fetchUserInfoByid(userId: 6079306),
+        )..addNewUser(
+              newUser: const User(
+            email: "ali@gmail.com",
+            gender: "male",
+            name: "mohammed ashraf",
+            status: "Active",
+          )),
         child: const HomeView(),
       ),
     );
