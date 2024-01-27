@@ -8,8 +8,8 @@ class User extends Equatable {
   final String? status;
 
   const User({this.id, this.name, this.email, this.gender, this.status});
-  //TODO:: convert json to dart
-  factory User.usersFromJson(Map<String, dynamic> json) {
+
+  factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] as int?,
       name: json['name'] as String?,
@@ -18,8 +18,8 @@ class User extends Equatable {
       status: json['status'] as String?,
     );
   }
-  //TODO:: convert dart to json
-  Map<String, dynamic> usersToJson() {
+
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'name': name,

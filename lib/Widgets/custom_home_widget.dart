@@ -1,19 +1,20 @@
+import 'package:api_app/Models/user_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomHomeWidget extends StatelessWidget {
-  const CustomHomeWidget({super.key});
-
+  const CustomHomeWidget({super.key, required this.userModel});
+  final User userModel;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 70,
       width: 300,
       color: Colors.red,
-      child: const Center(
+      child: Center(
         child: Text(
-          "islam",
-          style: TextStyle(
-            fontSize: 20,
+          userModel.name ?? "unKown",
+          style: const TextStyle(
+            fontSize: 15,
           ),
         ),
       ),

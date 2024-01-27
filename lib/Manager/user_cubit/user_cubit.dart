@@ -1,9 +1,6 @@
-import 'package:api_app/Models/user.dart';
+import 'package:api_app/Manager/user_cubit/user_state.dart';
 import 'package:api_app/Repos/home_repo.dart';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-
-part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit(this.homeRepo) : super(UserInitial());

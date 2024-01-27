@@ -1,4 +1,5 @@
-part of 'user_cubit.dart';
+import 'package:api_app/Models/user_model.dart';
+import 'package:equatable/equatable.dart';
 
 sealed class UserState extends Equatable {
   const UserState();
